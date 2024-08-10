@@ -4,7 +4,7 @@
 
 // Parameters
 numberOfGangs = 3; // Number of gangs (devices) in box
-spacerThickness = 10; // Thickness of spacer
+spacerThickness = 3.2; // Thickness of spacer
 
 difference(){
 
@@ -19,7 +19,7 @@ difference(){
     union() {
     
         // Start piece
-        cube([endLengths, spacerThickness, spacerWidth]);
+        cube([endLengths, spacerWidth, spacerThickness]);
         
         // Pieces for each gang in box (when box is 2-gang or more)
         for (i = [1:1:numberOfGangs]) {
@@ -27,14 +27,14 @@ difference(){
             if (i > 1) {
 
                 translate([(i - 2) * distanceBetweenGangs + endLengths, 0, 0])
-                    cube([distanceBetweenGangs, spacerThickness, spacerWidth]);
+                    cube([distanceBetweenGangs, spacerWidth, spacerThickness]);
             };
         };
         
         // End piece
         
         translate([(distanceBetweenGangs * (numberOfGangs - 1)) + endLengths, 0, 0])
-          cube([endLengths, spacerThickness, spacerWidth]);
+          cube([endLengths, spacerWidth, spacerThickness]);
         
     };
 
