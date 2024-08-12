@@ -14,7 +14,7 @@ difference(){
     endLengths = 15; // Length of end pieces
     distanceBetweenGangs = 46; // Distance between gangs (devices) in box
     spacerWidth = 10; // Width of spacer
-    holeDiameter= 5; // Diameter of holes
+    holeDiameter = 5; // Diameter of holes
 
     union() {
     
