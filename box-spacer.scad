@@ -5,6 +5,7 @@
 // Parameters
 numberOfGangs = 3; // Number of gangs (devices) in box
 spacerThickness = 3.2; // Thickness of spacer
+arcResolution = 360; // Arc resolution (360 for production)
 
 difference(){
 
@@ -15,6 +16,7 @@ difference(){
     distanceBetweenGangs = 46; // Distance between gangs (devices) in box
     spacerWidth = 10; // Width of spacer
     holeDiameter = 5; // Diameter of holes
+
 
     union() {
     
@@ -43,11 +45,11 @@ difference(){
       if (i == 1) {
         translate([endLengths, spacerWidth / 2, 0])
           linear_extrude(spacerThickness)
-            circle(d = holeDiameter); 
+            circle(d = holeDiameter, $fn = arcResolution); 
       };
 
       translate([(i - 1) * distanceBetweenGangs + endLengths, spacerWidth / 2, 0])
         linear_extrude(spacerThickness)
-          circle(d = holeDiameter);   
+          circle(d = holeDiameter, $fn = arcResolution);   
     };
 };
